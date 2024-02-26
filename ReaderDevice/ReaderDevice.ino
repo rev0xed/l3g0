@@ -197,7 +197,7 @@ void printTag(byte *buffer, byte bufferSize) {
 	new_string.replace("#", ""); // remove #
 
   HTTPClient http;
-  String url = "https://gip.0xed.io/index.php?card=" + new_string + "&country=" + country.c_str(); // Use the ESP32's IP address as parameter
+  String url = "https://gip.0xed.io/index.php?card=" + new_string; // Use the ESP32's IP address as parameter
   Serial.println(url);
 
   http.begin(url);
@@ -304,7 +304,7 @@ void setup() {
     connectAWS();
 
 		HTTPClient http;
-		String url = "https://gip.0xed.io/index.php?ip=" + ipAddress + "&country=" + country.c_str(); // Use the ESP32's IP address as parameter
+		String url = "https://gip.0xed.io/index.php?ip=" + ipAddress; // Use the ESP32's IP address as parameter
     http.begin(url);
     int httpCode = http.GET();  //Make the request
     if (httpCode > 0) { //Check for the returning code
